@@ -1,0 +1,35 @@
+{
+  "name": "boerl/zf1-log-psr3",
+  "description": "A wrapper around a Zend Framework 1 Logger to make it PSR-3 compatible.",
+  "type": "library",
+  "keywords": [
+    "zend",
+    "zf1",
+    "log",
+    "psr3",
+    "psr-3",
+    "wrapper",
+    "facade"
+  ],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Roel Arents",
+      "email": "roel.arents@berlinger.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Boerl\\Zf1LogPsr3\\": "src/"
+    }
+  },
+  "require": {
+    "php": "^5.4 || ^7",
+    "psr/log": "^1"
+  },
+  "require-dev": {
+    "zendframework/zendframework1": "^1",
+    "phpunit/phpunit": "^4"
+  }
+}
