@@ -15,6 +15,16 @@ class Wrapper extends AbstractLogger
     protected $config;
 
     /**
+     * @return string[] Placeholders with these names are always in an event passed to
+     *  {@see Zend_Log_Formatter_Interface::format()}.
+     * Source: {@see Zend_Log::_packEvent()}
+     */
+    public static function getZf1LogBaseEventKeys()
+    {
+        return ['timestamp', 'message', 'priority', 'priorityName'];
+    }
+
+    /**
      * @param Zf1Logger $zf1Logger The original ZF1 Logger to be wrapped.
      * @param array<string,mixed> $config {@see setConfig()}
      */
@@ -104,10 +114,12 @@ class Wrapper extends AbstractLogger
      * Rewrites PSR-3 style placeholders to ZF1 style. E.g. `{example}` becomes `%example%`.
      *
      * @param string $message Will be rewritten.
-     * @param string[] $names Only replace these names. (Optional. By default, all will be rewritten.)
+     * @param string[] $names Only replace these placeholders. (Optional. By default all will be replaced.)
+     *  {@see getZf1LogBaseEventKeys Base ZF1 placeholders} will always be replaced.
      */
     public static function psrPlaceHoldersToZf1(&$message, array $names = null)
     {
+        $names = is_null($names) ? $names : array_merge(static::getZf1LogBaseEventKeys(), $names);
         $message = preg_replace_callback('/{(?<name>[A-Za-z0-9_.]+)}/', function($match) use ($names) {
             $name = $match['name'];
             if ($names && !in_array($name, $names)) {

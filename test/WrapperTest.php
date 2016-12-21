@@ -75,9 +75,9 @@ class WrapperTest extends LoggerInterfaceTest
     {
         $logger = $this->getLogger('%message%', ['rewrite_placeholders' => true]);
 
-        $input = 'foo %replaceme% %replacemenot% {replaceme} {replacemenot} foo';
+        $input = 'foo %replaceme% %replacemenot% {replaceme} {replacemenot} {priority} foo';
         $context = ['replaceme' => 'replaced'];
-        $expected = 'foo replaced %replacemenot% replaced {replacemenot} foo';
+        $expected = 'foo replaced %replacemenot% replaced {replacemenot} 0 foo';
 
         $logger->emergency($input, $context);
         $this->assertSame($expected, $this->getOnlyLoggedMessage());
@@ -93,9 +93,9 @@ class WrapperTest extends LoggerInterfaceTest
     {
         $logger = $this->getLogger('%message%', ['rewrite_placeholders' => false]);
 
-        $input = 'foo %replaceme% %replacemenot% {replaceme} {replacemenot} foo';
+        $input = 'foo %replaceme% %replacemenot% {replaceme} {replacemenot} {priority} foo';
         $context = ['replaceme' => 'replaced'];
-        $expected = 'foo replaced %replacemenot% {replaceme} {replacemenot} foo';
+        $expected = 'foo replaced %replacemenot% {replaceme} {replacemenot} {priority} foo';
         $logger->emergency($input, $context);
 
         $this->assertSame($expected, $this->getOnlyLoggedMessage());
