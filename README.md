@@ -8,9 +8,13 @@ Then this is the library for you. You can keep your existing logger (e.g. to sha
 ## Features
 
 * PSR-3 style placeholders are rewritten to ZF1 style.
-  E.g. `{example}` becomes `%example%`.
-  (Can be disabled.)
-* `logLevel` is added to the `extras` cq context array. (Can be disabled.)
+   E.g. `{example}` becomes `%example%`.
+   (Can be disabled.)
+* `logLevel` is added to the `extras` cq context array.
+   (Can be disabled.)
+* (Not directly related to the goal of this library, but useable for testing:) A very basic implementation of
+   `Zend_Log_Writer_Abstract` is available: [`MemoryWriter`](src/MemoryWriter.php).
+   It keeps the formatted logged messages in memory, to be retrieved later.
 
 ## Usage
 
