@@ -6,7 +6,7 @@ use Psr\Log\LogLevel;
 use Psr\Log\Test\LoggerInterfaceTest;
 
 /**
- * @covers Wrapper
+ * @coversDefaultClass Wrapper
  */
 class WrapperTest extends LoggerInterfaceTest
 {
@@ -68,8 +68,8 @@ class WrapperTest extends LoggerInterfaceTest
     /**
      * Test expected behaviour when `rewrite_placeholders` is enabled.
      *
-     * @covers Wrapper::__construct
-     * @covers Wrapper::setConfig
+     * @covers ::__construct
+     * @covers ::setConfig
      */
     public function testConfigRewritePlaceholdersOn()
     {
@@ -86,8 +86,8 @@ class WrapperTest extends LoggerInterfaceTest
     /**
      * Test expected behaviour when `rewrite_placeholders` is disabled.
      *
-     * @covers Wrapper::__construct
-     * @covers Wrapper::setConfig
+     * @covers ::__construct
+     * @covers ::setConfig
      */
     public function testConfigRewritePlaceholdersOff()
     {
@@ -104,8 +104,8 @@ class WrapperTest extends LoggerInterfaceTest
     /**
      * Test expected behaviour when `add_log_level` is enabled.
      *
-     * @covers Wrapper::__construct
-     * @covers Wrapper::setConfig
+     * @covers ::__construct
+     * @covers ::setConfig
      */
     public function testConfigAddLogLevelOn()
     {
@@ -121,8 +121,8 @@ class WrapperTest extends LoggerInterfaceTest
     /**
      * Test expected behaviour when `add_log_level` is disabled.
      *
-     * @covers Wrapper::__construct
-     * @covers Wrapper::setConfig
+     * @covers ::__construct
+     * @covers ::setConfig
      */
     public function testConfigAddLogLevelOff()
     {

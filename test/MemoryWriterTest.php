@@ -3,14 +3,14 @@
 namespace Boerl\Zf1LogPsr3;
 
 /**
- * @covers MemoryWriter
+ * @coversDefaultClass MemoryWriter
  */
 class MemoryWriterTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Tests that the factory does not need any arguments.
      *
-     * @covers MemoryWriter::factory
+     * @covers ::factory
      */
     public function testConstructor()
     {
@@ -20,8 +20,8 @@ class MemoryWriterTest extends \PHPUnit_Framework_TestCase
     /**
      * Tests that with each written event, the size of the messages array is incremented.
      *
-     * @covers MemoryWriter::write
-     * @covers MemoryWriter::getMessages
+     * @covers ::write
+     * @covers ::getMessages
      */
     public function testMessagesAreRetrievable()
     {
